@@ -40,6 +40,22 @@ sum(dat$Zip*dat$Ext,na.rm=T)
 ```
 (original data source: http://catalog.data.gov/dataset/natural-gas-acquisition-program)
 
+```R
+install.packages("openxlsx")
+library(openxlsx)
+
+fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx"
+download.file(fileUrl, destfile = "./getdata_data_DATA.gov_NGAP.xlsx", method = "curl")
+dat <- read.xlsx("./getdata_data_DATA.gov_NGAP.xlsx", rows = 18:23, cols = 7:15)
+sum(dat$Zip*dat$Ext, na.rm=T)
+
+# Answer: 
+# 36534720
+
+```
+
+
+
 ## Question 4
 Read the XML data on Baltimore restaurants from here:
 
