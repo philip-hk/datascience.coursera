@@ -13,7 +13,7 @@ How many properties are worth $1,000,000 or more?
 fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"
 download.file(fileUrl, destfile = "./getdata_data_ss06hid.csv", sep = ",", method = "curl")
 communitydata <- read.csv("./getdata_data_ss06hid.csv")
-sum(communitydata$VAL == 24, na.rm = TRUE)
+sum(communitydata$VAL == 24, na.rm = TRUE)   # From cookbook, 24 = over $1,000,000
 
 # Answer: 
 # 53
