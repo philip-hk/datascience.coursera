@@ -9,6 +9,18 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FPUMSDataDict06.pdf
 
 How many properties are worth $1,000,000 or more?
 
+```R
+fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"
+download.file(fileUrl, destfile = "./getdata_data_ss06hid.csv", sep = ",", method = "curl")
+communitydata <- read.csv("./getdata_data_ss06hid.csv")
+sum(communitydata$VAL == 24, na.rm = TRUE)
+
+# Answer: 
+# 53
+
+```
+
+
 ## Question 2
 Use the data you loaded from Question 1. Consider the variable FES in the code book. Which of the "tidy data" principles does this variable violate? 
 
