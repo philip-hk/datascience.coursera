@@ -68,6 +68,23 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml
 
 How many restaurants have zipcode 21231? 
 
+```R
+
+library(XML)
+library(data.table)
+
+fileURL<-"http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml"
+doc <- xmlTreeParse(fileURL, useInternal = TRUE)
+rootnode <- xmlRoot(doc)
+doc_zipcode <- xpathSApply(rootnode, "//zipcode", xmlValue)
+result_zip<- data.table(zipcode = doc_zipcode)
+result_zip[zipcode == "21231", .N]
+
+
+# Answer: 
+# 127
+```
+
 ## Question 5
 The American Community Survey distributes downloadable data about United States communities. Download the 2006 microdata survey about housing for the state of Idaho using download.file() from here: 
 
