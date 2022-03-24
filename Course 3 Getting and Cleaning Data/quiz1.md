@@ -77,8 +77,8 @@ fileURL<-"http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml"
 doc <- xmlTreeParse(fileURL, useInternal = TRUE)
 rootnode <- xmlRoot(doc)
 doc_zipcode <- xpathSApply(rootnode, "//zipcode", xmlValue)
-result_zip<- data.table(zipcode = doc_zipcode)
-result_zip[zipcode == "21231", .N]
+zipcodeDT<- data.table(zipcode = doc_zipcode)
+zipcodeDT[zipcode == "21231", .N]
 
 
 # Answer: 
