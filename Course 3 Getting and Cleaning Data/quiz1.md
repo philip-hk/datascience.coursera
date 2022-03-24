@@ -100,3 +100,11 @@ Which of the following is the fastest way to calculate the average value of the 
 pwgtp15
 ```
 broken down by sex using the data.table package?
+
+```R
+fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv"
+DT <- fread(fileUrl)
+
+# Answer (fastest):
+system.time(DT[,mean(pwgtp15),by=SEX])
+```
